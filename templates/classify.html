@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WasteWise - Classify Your Waste</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-circle">W</div>
+            <span class="logo-text">WasteWise</span>
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/classify" class="active">Classify</a>
+        </nav>
+        <div class="user-profile">
+            <div class="user-circle">U</div>
+        </div>
+    </header>
+
+    <main class="classify-container">
+        <section class="hero">
+            <h1>Classify Your Waste</h1>
+            <p class="subtitle">Upload an image of your waste item and our AI will tell you how to dispose of it properly</p>
+        </section>
+
+        <!-- <div class="steps-container">
+            <div class="step active">1</div>
+            <div class="step-connector"></div>
+            <div class="step">2</div>
+            <div class="step-connector"></div>
+            <div class="step">3</div>
+        </div> -->
+
+        <div class="upload-container" id="uploadContainer">
+            <!-- Drop Area -->
+            <div id="dropArea" class="drop-area">
+                <i class="fas fa-upload"></i>
+                <p>Upload Image</p>
+                <span class="small-text">Drag and drop or click to browse</span>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+            </div>
+
+            <!-- Preview Area (initially hidden) -->
+            <div id="previewContainer" class="preview-container hidden">
+                <h3>Preview Your Image</h3>
+                <div class="preview-image-container">
+                    <img id="previewImageBeforeUpload" src="" alt="Selected waste item">
+                </div>
+                <div class="preview-buttons">
+                    <button id="cancelBtn" class="secondary-btn">Cancel</button>
+                    <button id="uploadBtn" class="primary-btn">Classify</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultContainer" class="result-container hidden">
+            <h2>Classification Result</h2>
+            <div class="result-details">
+                <div class="result-image">
+                    <img id="previewImage" src="" alt="Uploaded waste item">
+                </div>
+                <div class="result-info">
+                    <div class="result-item">
+                        <h3>Waste Type:</h3>
+                        <p id="wasteType"></p>
+                    </div>
+                    <div class="result-item">
+                        <h3>Recyclability:</h3>
+                        <p id="recyclability"></p>
+                    </div>
+                    <button id="classifyAgainBtn" class="primary-btn">Classify Another Item</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="chatOverlay" class="chat-overlay">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>AI Recycling Assistant</h3>
+                <button id="closeChatBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <p>Thank you for your interest in waste disposal. I'll help you find the proper recycling method for your items.</p>
+                </div>
+            </div>
+            <form id="chatForm" class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Ask me anything about waste disposal..." required>
+                <button type="submit" class="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="chat-button" id="chatButton">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

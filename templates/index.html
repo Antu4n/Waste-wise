@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WasteWise - Waste Classification Made Simple</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-circle">W</div>
+            <span class="logo-text">WasteWise</span>
+        </div>
+        <nav>
+            <a href="/" class="active">Home</a>
+            <a href="/classify">Classify</a>
+        </nav>
+        <div class="user-profile">
+            <div class="user-circle">A</div>
+        </div>
+    </header>
+
+    <main class="home-container">
+        <section class="hero">
+            <h1>Waste Classification Made Simple</h1>
+            <p class="subtitle">Upload an image of your waste item and our AI will tell you how to dispose of it properly</p>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h2>Classify Waste</h2>
+                <p>Upload a photo of your waste item and get instant classification</p>
+                <a href="/classify" class="feature-link">Classify</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h2>Ask Our AI</h2>
+                <p>Have questions about recycling? Our AI assistant is here to help</p>
+                <button id="openChatBtn" class="feature-link">Open Chat</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="chatOverlay" class="chat-overlay">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>AI Chatbot Assistant</h3>
+                <button id="closeChatBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    <p>Thank you for your interest in waste disposal. I'll help you find the proper recycling </p>
+                </div>
+            </div>
+            <form id="chatForm" class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Ask me anything about waste disposal..." required>
+                <button type="submit" class="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="chat-button" id="chatButton">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
